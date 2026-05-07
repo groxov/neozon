@@ -1,0 +1,17 @@
+node_modules/
+server/node_modules/
+build/
+server/dist/
+server/database/*.db
+server/database/*.db-shm
+server/database/*.db-wal
+server/database/*.sqlite
+server/database/*.sqlite3
+*.log
+*.err.log
+.env
+.env.*
+server/.env
+node_modules/.vite/
+Thumbs.db
+.DS_Store
