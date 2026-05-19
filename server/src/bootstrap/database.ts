@@ -2,6 +2,7 @@ import bcrypt from 'bcryptjs';
 import fs from 'fs';
 import path from 'path';
 import { dbAll, dbGet, dbRun, getDatabaseDialect, verifyDatabaseConnection } from '../database/db';
+import { ensureDemoData } from './demoSeed';
 import { splitSqlStatements } from '../utils/sql';
 
 const DEFAULT_ADMIN = {
@@ -18,10 +19,24 @@ export async function initializeDatabase() {
     await executeSchema();
     await ensureSchemaUpgrades();
     await ensureDefaultAdmin();
+    await ensureInitialDemoData();
     console.log(`Database initialized (${getDatabaseDialect()})`);
   } catch (error) {
     console.error('Database initialization failed:', error);
     throw error;
+  }
+}
+
+async function ensureInitialDemoData() {
+  if (process.env.AUTO_SEED_DEMO === 'false') {
+    return;
+  }
+
+  const result = await ensureDemoData();
+  if (result.seeded && result.counts) {
+    console.log(
+      `Demo data seeded: ${result.counts.clients} clients, ${result.counts.repairRequests} requests, ${result.counts.transactions} transactions`,
+    );
   }
 }
 
