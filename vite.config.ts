@@ -16,6 +16,9 @@ export default defineConfig({
     outDir: 'build',
     rollupOptions: {
       output: {
+        entryFileNames: 'assets/app.js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name][extname]',
         manualChunks: {
           react: ['react', 'react-dom'],
           motion: ['framer-motion'],
