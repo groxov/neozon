@@ -9,7 +9,7 @@ const DEFAULT_ADMIN = {
   username: 'admin',
   email: 'admin@kalakutsky-service.ru',
   password: 'admin123',
-  name: 'Администратор',
+  name: 'Administrator',
 } as const;
 
 export async function initializeDatabase() {
@@ -18,20 +18,15 @@ export async function initializeDatabase() {
     await executeSchema();
     await ensureSchemaUpgrades();
     await ensureDefaultAdmin();
-    console.log(`База данных инициализирована (${getDatabaseDialect()})`);
+    console.log(`Database initialized (${getDatabaseDialect()})`);
   } catch (error) {
-    console.error('Ошибка инициализации базы данных:', error);
+    console.error('Database initialization failed:', error);
     throw error;
   }
 }
 
 async function executeSchema() {
-  const schemaPath = path.join(__dirname, '../database/schema.sql');
-
-  if (!fs.existsSync(schemaPath)) {
-    throw new Error(`Файл схемы не найден: ${schemaPath}`);
-  }
-
+  const schemaPath = resolveSchemaPath();
   const schema = fs.readFileSync(schemaPath, 'utf-8');
   const statements = splitSqlStatements(schema);
 
@@ -42,6 +37,21 @@ async function executeSchema() {
 
     await dbRun(statement);
   }
+}
+
+function resolveSchemaPath() {
+  const candidatePaths = [
+    path.join(__dirname, '../database/schema.sql'),
+    path.join(__dirname, '../../src/database/schema.sql'),
+  ];
+
+  const existingPath = candidatePaths.find((candidatePath) => fs.existsSync(candidatePath));
+
+  if (!existingPath) {
+    throw new Error(`Schema file not found: ${candidatePaths.join(', ')}`);
+  }
+
+  return existingPath;
 }
 
 async function ensureSchemaUpgrades() {
@@ -61,14 +71,14 @@ async function ensureDefaultAdmin() {
   ]);
 
   if (existingAdmin) {
-    console.log('Администратор уже существует');
+    console.log('Default admin already exists');
     return;
   }
 
   const passwordHash = await bcrypt.hash(DEFAULT_ADMIN.password, 10);
 
   await dbRun(
-    `INSERT INTO users (id, username, email, password_hash, user_type, name) 
+    `INSERT INTO users (id, username, email, password_hash, user_type, name)
      VALUES (?, ?, ?, ?, ?, ?)`,
     [
       DEFAULT_ADMIN.id,
@@ -80,7 +90,7 @@ async function ensureDefaultAdmin() {
     ],
   );
 
-  console.log('Тестовый администратор создан (логин: admin, пароль: admin123)');
+  console.log('Default admin created (login: admin, password: admin123)');
 }
 
 async function hasSqliteColumn(tableName: string, columnName: string) {
