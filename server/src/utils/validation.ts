@@ -291,6 +291,7 @@ const transactionsQuerySchema = z
   .object({
     ...dateRangeFields,
     type: transactionTypeSchema.optional(),
+    request_id: optionalString(),
   })
   .superRefine((value, context) => {
     if (value.startDate && value.endDate && new Date(value.startDate).getTime() > new Date(value.endDate).getTime()) {

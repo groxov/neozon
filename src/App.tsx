@@ -26,6 +26,9 @@ export default function App() {
     setCurrentPage(page);
     setMobileMenuOpen(false);
     setSelectedRequest(null);
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    });
   };
 
   const handleLoginClick = () => {
@@ -53,6 +56,14 @@ export default function App() {
       setCurrentPage(userType === 'admin' ? 'dashboard' : 'landing');
     }
   }, [isLoggedIn, userType]);
+
+  useEffect(() => {
+    if (!isReady) {
+      return;
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [currentPage, isReady]);
 
   if (!isReady) {
     return <div className="min-h-screen" />;

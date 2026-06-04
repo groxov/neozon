@@ -14,6 +14,7 @@ interface ApiRepairRequestRecord {
   created_at: string;
   updated_at?: string;
   assigned_to?: string | null;
+  assigned_to_name?: string | null;
   estimated_cost?: number | null;
   actual_cost?: number | null;
   notes?: string | null;
@@ -39,7 +40,7 @@ export function transformApiRequestToRepairRequest(item: ApiRequestRecord): Repa
       status: normalizeStatus(item.status),
       priority: normalizePriority(item.priority),
       createdAt: parseDate(item.created_at),
-      assignedTo: item.assigned_to ?? '',
+      assignedTo: item.assigned_to_name ?? item.assigned_to ?? '',
       estimatedCost: item.estimated_cost ?? item.actual_cost ?? undefined,
       actualCost: item.actual_cost ?? undefined,
       notes: item.notes ?? '',

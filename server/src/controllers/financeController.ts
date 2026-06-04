@@ -6,6 +6,7 @@ interface FinanceQuery {
   type?: 'income' | 'expense';
   startDate?: string;
   endDate?: string;
+  request_id?: string;
 }
 
 interface TransactionPayload {
@@ -17,7 +18,7 @@ interface TransactionPayload {
 }
 
 export const getTransactions = asyncHandler(async (req, res) => {
-  const { type, startDate, endDate } = req.query as FinanceQuery;
+  const { type, startDate, endDate, request_id } = req.query as FinanceQuery;
 
   return sendSuccess(
     res,
@@ -25,6 +26,7 @@ export const getTransactions = asyncHandler(async (req, res) => {
       type,
       startDate,
       endDate,
+      request_id,
     }),
   );
 });

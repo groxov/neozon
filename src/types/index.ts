@@ -135,6 +135,7 @@ export interface FinanceFilters {
   type?: FinanceTransaction['type'];
   startDate?: string;
   endDate?: string;
+  request_id?: string;
 }
 
 export interface ApiRequestItem {

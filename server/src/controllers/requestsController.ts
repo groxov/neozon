@@ -136,6 +136,8 @@ export const deleteRequest = asyncHandler(async (req, res) => {
       await EmployeeModel.adjustCompletedRepairs(request.assigned_to, -1);
     }
 
+    await TransactionModel.deleteIncomeByRequestId(request.id);
+
     const deleted = await RepairRequestModel.delete(req.params.id);
     if (!deleted) {
       throw new ApiError(404, 'Заявка не найдена');
@@ -235,19 +237,18 @@ async function syncCompletedRepairsCounters(previousRequest: RepairRequest, next
 }
 
 async function syncCompletionIncomeTransaction(request: RepairRequest) {
-  if (request.status !== 'completed') {
-    return;
-  }
+  const existingTransaction = await TransactionModel.findIncomeByRequestId(request.id);
 
   const amount = request.actual_cost ?? request.estimated_cost;
-  if (!amount || amount <= 0) {
+  if (request.status !== 'completed' || !amount || amount <= 0) {
+    if (existingTransaction) {
+      await TransactionModel.deleteIncomeByRequestId(request.id);
+    }
     return;
   }
 
   const description = `Ремонт ${request.device_type} ${request.device_model}`;
   const date = request.completed_at ?? new Date().toISOString();
-  const existingTransaction = await TransactionModel.findIncomeByRequestId(request.id);
-
   if (!existingTransaction) {
     await TransactionModel.create({
       request_id: request.id,

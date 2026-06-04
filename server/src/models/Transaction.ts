@@ -148,6 +148,15 @@ export class TransactionModel {
     return result.changes > 0;
   }
 
+  static async deleteIncomeByRequestId(requestId: string): Promise<boolean> {
+    const result = await dbRun(
+      `DELETE FROM transactions
+       WHERE request_id = ? AND type = 'income'`,
+      [requestId],
+    );
+    return result.changes > 0;
+  }
+
   static async getStats(startDate?: string, endDate?: string): Promise<TransactionStats> {
     let query = `
       SELECT 

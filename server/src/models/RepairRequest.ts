@@ -17,6 +17,7 @@ export interface RepairRequest {
   status: RepairRequestStatus;
   priority: RepairRequestPriority;
   assigned_to: string | null;
+  assigned_to_name?: string | null;
   estimated_cost: number | null;
   actual_cost: number | null;
   notes: string | null;
@@ -50,26 +51,37 @@ export interface RepairRequestCreateInput {
 
 export class RepairRequestModel {
   static async findAll(filters: RepairRequestFilters = {}): Promise<RepairRequest[]> {
-    let query = 'SELECT * FROM repair_requests WHERE 1=1';
+    let query = `
+      SELECT rr.*, e.name as assigned_to_name
+      FROM repair_requests rr
+      LEFT JOIN employees e ON e.id = rr.assigned_to
+      WHERE 1=1
+    `;
     const params: unknown[] = [];
 
     if (filters.status) {
-      query += ' AND status = ?';
+      query += ' AND rr.status = ?';
       params.push(filters.status);
     }
 
     if (filters.assigned_to) {
-      query += ' AND assigned_to = ?';
+      query += ' AND rr.assigned_to = ?';
       params.push(filters.assigned_to);
     }
 
-    query += ' ORDER BY created_at DESC';
+    query += ' ORDER BY rr.created_at DESC';
 
     return dbAll<RepairRequest>(query, params);
   }
 
   static async findById(id: string): Promise<RepairRequest | null> {
-    const result = await dbGet<RepairRequest>('SELECT * FROM repair_requests WHERE id = ?', [id]);
+    const result = await dbGet<RepairRequest>(
+      `SELECT rr.*, e.name as assigned_to_name
+       FROM repair_requests rr
+       LEFT JOIN employees e ON e.id = rr.assigned_to
+       WHERE rr.id = ?`,
+      [id],
+    );
     return result ?? null;
   }
 
