@@ -32,13 +32,13 @@ export function OperationsPulse({
   const analytics = useMemo(() => buildOperationsAnalytics(requests), [requests]);
 
   return (
-    <section className={cn('app-panel relative overflow-hidden p-5 sm:p-6', className)}>
+    <section className={cn('app-panel relative overflow-hidden p-4 sm:p-6', className)}>
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-x-0 top-0 h-32 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.12),transparent_42%)]" />
         <div className="absolute inset-y-0 left-0 w-44 bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.09),transparent_60%)]" />
       </div>
 
-      <div className="relative">
+      <div className="relative min-w-0">
         <div className="flex flex-col gap-4 border-b border-slate-100 pb-5 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-3xl">
             <p className="app-kicker">{eyebrow}</p>
@@ -58,8 +58,8 @@ export function OperationsPulse({
           </div>
         </div>
 
-        <div className="mt-6 grid gap-4 xl:grid-cols-[minmax(0,1.18fr)_minmax(320px,0.82fr)]">
-          <section className="rounded-[26px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(248,250,252,0.98))] p-5 shadow-[0_18px_48px_-38px_rgba(15,23,42,0.45)]">
+        <div className="mt-5 grid min-w-0 gap-4 xl:mt-6 xl:grid-cols-[minmax(0,1.18fr)_minmax(0,0.82fr)]">
+          <section className="min-w-0 rounded-[18px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(248,250,252,0.98))] p-4 shadow-[0_18px_48px_-38px_rgba(15,23,42,0.45)] sm:rounded-[22px] sm:p-5">
             <div className="flex flex-col gap-5">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
                 <div>
@@ -89,7 +89,7 @@ export function OperationsPulse({
                 </div>
               </div>
 
-              <div className="rounded-[24px] border border-slate-200/80 bg-slate-50/90 p-4 sm:p-5">
+              <div className="min-w-0 rounded-[16px] border border-slate-200/80 bg-slate-50/90 p-3 sm:rounded-[20px] sm:p-5">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap gap-2">
                     <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-600 shadow-sm">
@@ -104,8 +104,8 @@ export function OperationsPulse({
                   </p>
                 </div>
 
-                <div className="mt-5 overflow-hidden rounded-[22px] border border-slate-200/70 bg-white/90 px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
-                  <div className="grid gap-5 lg:grid-cols-[40px_minmax(0,1fr)]">
+                <div className="mt-4 min-w-0 overflow-hidden rounded-[16px] border border-slate-200/70 bg-white/90 px-2 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] sm:mt-5 sm:rounded-[20px] sm:px-4 sm:py-4">
+                  <div className="grid min-w-0 gap-4 lg:grid-cols-[40px_minmax(0,1fr)]">
                     <div className="hidden h-64 flex-col justify-between pt-2 text-right text-[11px] font-medium text-slate-400 lg:flex">
                       {analytics.chartTicks.map((tick) => (
                         <span key={tick}>{tick}</span>
@@ -113,8 +113,8 @@ export function OperationsPulse({
                     </div>
 
                     <div className="min-w-0">
-                      <div className="relative h-64 rounded-[20px] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(248,250,252,0.74),rgba(255,255,255,0.94))] px-3 pb-4 pt-3 sm:px-4">
-                        <div className="absolute inset-x-3 inset-y-3 sm:inset-x-4">
+                      <div className="relative h-44 rounded-[14px] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(248,250,252,0.74),rgba(255,255,255,0.94))] px-1.5 pb-3 pt-2 sm:h-64 sm:rounded-[20px] sm:px-4 sm:pb-4 sm:pt-3">
+                        <div className="absolute inset-x-2 inset-y-3 sm:inset-x-4">
                           <div className="grid h-full grid-rows-4">
                             {analytics.chartTicks.slice(0, -1).map((tick) => (
                               <div
@@ -125,18 +125,18 @@ export function OperationsPulse({
                           </div>
                         </div>
 
-                        <div className="relative flex h-full items-end gap-1.5 sm:gap-2">
+                        <div className="relative flex h-full min-w-0 items-end gap-0.5 sm:gap-2">
                           {analytics.dailySeries.map((day, index) => {
                             const isLatest = day.key === analytics.lastDay.key;
                             const isPeak = day.count === analytics.peakDay.count && day.count > 0;
 
                             return (
                               <div key={day.key} className="flex min-w-0 flex-1 flex-col justify-end">
-                                <div className="flex h-9 items-end justify-center">
+                                <div className="flex h-7 items-end justify-center sm:h-9">
                                   {day.count > 0 ? (
                                     <span
                                       className={cn(
-                                        'inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold shadow-sm',
+                                        'inline-flex items-center rounded-full px-1.5 py-0.5 text-[10px] font-semibold shadow-sm sm:px-2 sm:text-[11px]',
                                         isPeak
                                           ? 'bg-violet-100 text-violet-700'
                                           : 'bg-white text-slate-600',
@@ -149,7 +149,7 @@ export function OperationsPulse({
 
                                 <div
                                   className={cn(
-                                    'relative flex flex-1 items-end justify-center rounded-[18px] border border-slate-200/80 bg-white/92 px-1.5 pb-2 pt-3 shadow-[0_14px_28px_-28px_rgba(15,23,42,0.75)] transition duration-300',
+                                    'relative flex flex-1 items-end justify-center rounded-xl border border-slate-200/80 bg-white/92 px-0.5 pb-1.5 pt-2 shadow-[0_14px_28px_-28px_rgba(15,23,42,0.75)] transition duration-300 sm:rounded-[18px] sm:px-1.5 sm:pb-2 sm:pt-3',
                                     isLatest ? 'border-blue-100 bg-blue-50/35' : '',
                                   )}
                                 >
@@ -160,7 +160,7 @@ export function OperationsPulse({
                                   <div className="relative flex h-full w-full items-end justify-center">
                                     <div
                                       className={cn(
-                                        'w-full max-w-[34px] rounded-[14px] bg-gradient-to-t shadow-[0_14px_28px_-20px_rgba(79,70,229,0.65)]',
+                                        'w-full max-w-[18px] rounded-[10px] bg-gradient-to-t shadow-[0_14px_28px_-20px_rgba(79,70,229,0.65)] sm:max-w-[34px] sm:rounded-[14px]',
                                         day.count > 0
                                           ? 'from-[#2563eb] via-[#4f46e5] to-[#7c3aed]'
                                           : 'from-slate-200 to-slate-100 shadow-none',
@@ -173,8 +173,8 @@ export function OperationsPulse({
                                   </div>
                                 </div>
 
-                                <div className="mt-3 text-center">
-                                  <p className="text-[11px] font-medium text-slate-500">{day.shortLabel}</p>
+                                <div className="mt-2 text-center sm:mt-3">
+                                  <p className="text-[10px] font-medium text-slate-500 sm:text-[11px]">{day.shortLabel}</p>
                                 </div>
                               </div>
                             );
@@ -206,8 +206,8 @@ export function OperationsPulse({
             </div>
           </section>
 
-          <aside className="grid gap-4">
-            <div className="rounded-[26px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(248,250,252,0.98))] p-5 shadow-[0_18px_48px_-38px_rgba(15,23,42,0.45)]">
+          <aside className="grid min-w-0 gap-4">
+            <div className="min-w-0 rounded-[18px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(248,250,252,0.98))] p-4 shadow-[0_18px_48px_-38px_rgba(15,23,42,0.45)] sm:rounded-[22px] sm:p-5">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p className="text-sm font-medium text-slate-500">Статусный баланс</p>
@@ -263,7 +263,7 @@ export function OperationsPulse({
               </div>
             </div>
 
-            <div className="rounded-[26px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(248,250,252,0.98))] p-5 shadow-[0_18px_48px_-38px_rgba(15,23,42,0.45)]">
+            <div className="min-w-0 rounded-[18px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(248,250,252,0.98))] p-4 shadow-[0_18px_48px_-38px_rgba(15,23,42,0.45)] sm:rounded-[22px] sm:p-5">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p className="text-sm font-medium text-slate-500">Устройства</p>
@@ -277,7 +277,7 @@ export function OperationsPulse({
                   <p className="text-sm leading-6 text-slate-500">Пока нет данных по устройствам в выбранном срезе.</p>
                 ) : (
                   analytics.deviceMix.map((device, index) => (
-                    <div key={device.label} className="rounded-[22px] border border-slate-200/70 bg-white/90 px-4 py-4">
+                    <div key={device.label} className="rounded-[16px] border border-slate-200/70 bg-white/90 px-4 py-4 sm:rounded-[20px]">
                       <div className="mb-3 flex items-center justify-between gap-3">
                         <div
                           className={cn(
@@ -324,7 +324,7 @@ function VisualMetric({
   hint: string;
 }) {
   return (
-    <div className="rounded-[22px] border border-slate-200 bg-white/92 px-4 py-4 shadow-[0_14px_34px_-32px_rgba(15,23,42,0.65)]">
+    <div className="rounded-[16px] border border-slate-200 bg-white/92 px-4 py-4 shadow-[0_14px_34px_-32px_rgba(15,23,42,0.65)] sm:rounded-[20px]">
       <div className="flex items-center justify-between gap-3">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">{label}</p>
         <div className="rounded-xl bg-slate-100 p-2 text-slate-600">{icon}</div>
@@ -345,7 +345,7 @@ function CompactMetric({
   hint: string;
 }) {
   return (
-    <div className="rounded-[20px] border border-slate-200/80 bg-white/88 px-4 py-4 shadow-[0_16px_34px_-34px_rgba(15,23,42,0.8)]">
+    <div className="rounded-[16px] border border-slate-200/80 bg-white/88 px-4 py-4 shadow-[0_16px_34px_-34px_rgba(15,23,42,0.8)] sm:rounded-[18px]">
       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">{label}</p>
       <p className="mt-2 line-clamp-1 text-xl font-semibold tracking-[-0.04em] text-slate-950">{value}</p>
       <p className="mt-1 text-sm text-slate-500">{hint}</p>

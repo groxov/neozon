@@ -115,7 +115,7 @@ export default function App() {
           onClose={() => setMobileMenuOpen(false)}
         />
 
-        <main className="min-w-0 flex-1 px-4 pb-8 pt-4 sm:px-6 lg:ml-[18.5rem] lg:px-8 lg:pb-12 lg:pt-8">
+        <main className="min-w-0 flex-1 px-3 pb-8 pt-3 sm:px-5 sm:pt-5 lg:ml-[18.5rem] lg:px-7 lg:pb-12 lg:pt-7 xl:px-8 xl:pt-8">
           <div className="mx-auto w-full max-w-[1480px]">
             {selectedRequest ? (
               <RequestDetailsModal request={selectedRequest} onClose={handleCloseDetails} />

@@ -11,12 +11,12 @@ interface ServicesSectionProps {
 
 export function ServicesSection({ onNavigate }: ServicesSectionProps) {
   return (
-    <section id="services" className="section-anchor mx-auto max-w-[1480px] px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
-      <div className="app-panel p-6 sm:p-8">
+    <section id="services" className="section-anchor mx-auto max-w-[1480px] px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-10">
+      <div className="app-panel p-4 sm:p-8">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="app-eyebrow">Услуги</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl">
+            <h2 className="mt-4 text-2xl font-semibold leading-tight text-slate-950 sm:text-4xl">
               Что мы ремонтируем чаще всего
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
@@ -41,7 +41,7 @@ export function ServicesSection({ onNavigate }: ServicesSectionProps) {
               viewport={{ once: true, amount: 0.24 }}
               transition={{ duration: 0.46, delay: index * 0.06 }}
               whileHover={{ y: -6, scale: 1.015 }}
-              className="rounded-[28px] border border-slate-100 bg-slate-50/90 p-5 shadow-[0_20px_40px_-36px_rgba(15,23,42,0.4)]"
+              className="rounded-[18px] border border-slate-100 bg-slate-50/90 p-4 shadow-[0_20px_40px_-36px_rgba(15,23,42,0.4)] sm:rounded-[24px] sm:p-5"
             >
               <div className="flex items-center justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-[20px] bg-white text-blue-700 shadow-sm">

@@ -24,7 +24,7 @@ export function LandingHeader({
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/70 bg-white/85 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-[1480px] items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-[1480px] items-center justify-between gap-3 px-3 py-3 sm:px-6 sm:py-4 lg:px-8">
         <AppBrand compact />
 
         <nav className="hidden items-center gap-2 lg:flex">
@@ -72,7 +72,7 @@ export function LandingHeader({
       </div>
 
       {mobileMenuOpen ? (
-        <div className="border-t border-slate-100 bg-white px-4 py-4 sm:px-6 lg:hidden">
+        <div className="border-t border-slate-100 bg-white px-3 py-3 sm:px-6 sm:py-4 lg:hidden">
           <div className="flex flex-col gap-2">
             <a href="#hero" onClick={closeMenu} className="app-button-ghost justify-start">
               Главная

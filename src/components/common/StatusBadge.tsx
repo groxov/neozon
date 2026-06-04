@@ -16,7 +16,7 @@ export function StatusBadge({ status, className = '' }: StatusBadgeProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-full px-3 py-1 text-xs font-medium',
+        'inline-flex max-w-full items-center rounded-full px-3 py-1 text-xs font-medium leading-5',
         STATUS_COLORS[status],
         className,
       )}
@@ -30,7 +30,7 @@ export function PriorityBadge({ priority, className = '' }: PriorityBadgeProps) 
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-full px-3 py-1 text-xs font-medium',
+        'inline-flex max-w-full items-center rounded-full px-3 py-1 text-xs font-medium leading-5',
         PRIORITY_COLORS[priority],
         className,
       )}

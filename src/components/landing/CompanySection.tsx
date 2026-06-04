@@ -18,13 +18,13 @@ interface CompanySectionProps {
 
 export function CompanySection({ onNavigate }: CompanySectionProps) {
   return (
-    <section id="company" className="section-anchor mx-auto max-w-[1480px] px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
+    <section id="company" className="section-anchor mx-auto max-w-[1480px] px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-10">
       <div className="grid gap-4 2xl:grid-cols-[minmax(0,1.06fr)_minmax(360px,0.94fr)] 2xl:items-start">
-        <div className="rounded-[36px] bg-[linear-gradient(145deg,#fffdf9_0%,#ffffff_28%,#eef4ff_100%)] p-6 shadow-[0_28px_76px_-46px_rgba(15,23,42,0.38)] ring-1 ring-white/80 sm:p-8">
+        <div className="rounded-[22px] bg-[linear-gradient(145deg,#fffdf9_0%,#ffffff_28%,#eef4ff_100%)] p-4 shadow-[0_28px_76px_-46px_rgba(15,23,42,0.38)] ring-1 ring-white/80 sm:rounded-[30px] sm:p-8 xl:rounded-[36px]">
           <div className="border-b border-slate-100 pb-6">
             <div className="max-w-4xl">
               <p className="app-eyebrow">О компании</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-slate-950 sm:text-4xl">
+              <h2 className="mt-4 text-2xl font-semibold leading-tight text-slate-950 sm:text-4xl">
                 Сервисный центр, который вырос не из витрины, а из реальных ремонтов.
               </h2>
               <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
@@ -36,7 +36,7 @@ export function CompanySection({ onNavigate }: CompanySectionProps) {
 
             <div className="mt-6 grid gap-3 sm:grid-cols-3 xl:max-w-[760px]">
               {companyStats.map((item) => (
-                <div key={item.label} className="rounded-[24px] border border-slate-200/80 bg-white/88 px-5 py-5 shadow-[0_18px_34px_-34px_rgba(15,23,42,0.7)]">
+                <div key={item.label} className="rounded-[18px] border border-slate-200/80 bg-white/88 px-4 py-4 shadow-[0_18px_34px_-34px_rgba(15,23,42,0.7)] sm:rounded-[22px] sm:px-5 sm:py-5">
                   <AnimatedMetricValue value={item.value} className="text-3xl font-semibold tracking-[-0.04em] text-slate-950" />
                   <p className="mt-2 text-sm leading-6 text-slate-500">{item.label}</p>
                 </div>
@@ -45,7 +45,7 @@ export function CompanySection({ onNavigate }: CompanySectionProps) {
           </div>
 
           <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.92fr)]">
-            <article className="rounded-[30px] bg-[linear-gradient(145deg,#0f172a_0%,#1e1b4b_36%,#1d4ed8_100%)] p-6 text-white shadow-[0_30px_80px_-50px_rgba(15,23,42,0.75)]">
+            <article className="rounded-[20px] bg-[linear-gradient(145deg,#0f172a_0%,#1e1b4b_36%,#1d4ed8_100%)] p-4 text-white shadow-[0_30px_80px_-50px_rgba(15,23,42,0.75)] sm:rounded-[26px] sm:p-6">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/55">Наш подход</p>
@@ -75,7 +75,7 @@ export function CompanySection({ onNavigate }: CompanySectionProps) {
               </div>
             </article>
 
-            <article className="rounded-[30px] border border-slate-200/80 bg-slate-50/90 p-6 shadow-[0_24px_56px_-42px_rgba(15,23,42,0.42)]">
+            <article className="rounded-[20px] border border-slate-200/80 bg-slate-50/90 p-4 shadow-[0_24px_56px_-42px_rgba(15,23,42,0.42)] sm:rounded-[26px] sm:p-6">
               <p className="app-kicker">Как росли</p>
               <div className="mt-5 space-y-6">
                 {companyTimeline.map((item, index) => (
@@ -100,11 +100,11 @@ export function CompanySection({ onNavigate }: CompanySectionProps) {
         </div>
 
         <div className="grid gap-4 content-start 2xl:h-full">
-          <div className="app-panel p-6">
+          <div className="app-panel p-4 sm:p-6">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="app-kicker">Команда</p>
-                <h3 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+                <h3 className="mt-2 text-xl font-semibold leading-tight text-slate-950 sm:text-2xl">
                   Люди, которые держат качество
                 </h3>
               </div>
@@ -155,9 +155,9 @@ export function CompanySection({ onNavigate }: CompanySectionProps) {
             </div>
           </div>
 
-          <div className="app-panel p-6">
+          <div className="app-panel p-4 sm:p-6">
             <p className="app-kicker">Что важно клиенту</p>
-            <h3 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+            <h3 className="mt-2 text-xl font-semibold leading-tight text-slate-950 sm:text-2xl">
               Сервис должен быть понятным еще до ремонта
             </h3>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -172,7 +172,7 @@ export function CompanySection({ onNavigate }: CompanySectionProps) {
             </div>
           </div>
 
-          <div className="rounded-[36px] bg-[linear-gradient(145deg,#0f172a_0%,#1e3a8a_58%,#2563eb_100%)] p-6 text-white shadow-[0_28px_74px_-48px_rgba(15,23,42,0.72)] xl:sticky xl:top-24 xl:self-start 2xl:flex 2xl:min-h-[320px] 2xl:flex-col 2xl:justify-between">
+          <div className="rounded-[22px] bg-[linear-gradient(145deg,#0f172a_0%,#1e3a8a_58%,#2563eb_100%)] p-4 text-white shadow-[0_28px_74px_-48px_rgba(15,23,42,0.72)] sm:rounded-[30px] sm:p-6 xl:sticky xl:top-24 xl:self-start 2xl:flex 2xl:min-h-[320px] 2xl:flex-col 2xl:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/60">Маршрут заявки</p>
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em]">

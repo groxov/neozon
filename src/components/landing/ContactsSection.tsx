@@ -8,11 +8,11 @@ interface ContactsSectionProps {
 
 export function ContactsSection({ onLogin, onNavigate, isLoggedIn }: ContactsSectionProps) {
   return (
-    <section id="contacts" className="section-anchor mx-auto max-w-[1480px] px-4 py-6 sm:px-6 lg:px-8 lg:py-12">
+    <section id="contacts" className="section-anchor mx-auto max-w-[1480px] px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-12">
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_420px]">
-        <div className="rounded-[36px] bg-[linear-gradient(135deg,#0f172a_0%,#1f2937_42%,#1d4ed8_100%)] p-6 text-white shadow-[0_32px_100px_-44px_rgba(15,23,42,0.75)] sm:p-8">
+        <div className="rounded-[22px] bg-[linear-gradient(135deg,#0f172a_0%,#1f2937_42%,#1d4ed8_100%)] p-5 text-white shadow-[0_32px_100px_-44px_rgba(15,23,42,0.75)] sm:rounded-[30px] sm:p-8 xl:rounded-[36px]">
           <p className="app-eyebrow border-white/15 bg-white/10 text-white/80">Контакты</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+          <h2 className="mt-4 text-2xl font-semibold leading-tight sm:text-4xl">
             Если техника нужна в работе, лучше не откладывать диагностику.
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-white/75 sm:text-base">

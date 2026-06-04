@@ -19,13 +19,13 @@ export function PageIntro({
   return (
     <section
       className={cn(
-        'flex flex-col gap-4 rounded-[28px] border border-white/70 bg-white/80 p-6 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.45)] backdrop-blur sm:p-8 lg:flex-row lg:items-end lg:justify-between',
+        'flex flex-col gap-4 rounded-[18px] border border-white/70 bg-white/82 p-4 shadow-[0_16px_44px_-36px_rgba(15,23,42,0.42)] backdrop-blur sm:rounded-[24px] sm:p-6 lg:flex-row lg:items-end lg:justify-between lg:p-8',
         className,
       )}
     >
-      <div className="max-w-3xl">
+      <div className="min-w-0 max-w-3xl">
         {eyebrow ? <p className="app-eyebrow mb-3">{eyebrow}</p> : null}
-        <h1 className="text-3xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-4xl">
+        <h1 className="text-2xl font-semibold leading-tight text-slate-950 sm:text-3xl lg:text-4xl">
           {title}
         </h1>
         {description ? (
@@ -34,7 +34,7 @@ export function PageIntro({
           </p>
         ) : null}
       </div>
-      {actions ? <div className="flex flex-wrap gap-3">{actions}</div> : null}
+      {actions ? <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-end">{actions}</div> : null}
     </section>
   );
 }

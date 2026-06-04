@@ -14,12 +14,12 @@ export function QuickServiceEstimator({ onNavigate }: QuickServiceEstimatorProps
   const quickService = quickServicePresets[selectedQuickService];
 
   return (
-    <div className="mt-8 grid gap-4 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.55fr)]">
-      <div className="rounded-[30px] border border-slate-100 bg-slate-50/90 p-5 shadow-[0_22px_46px_-40px_rgba(15,23,42,0.4)]">
+    <div className="mt-6 grid gap-4 lg:mt-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.55fr)]">
+      <div className="rounded-[18px] border border-slate-100 bg-slate-50/90 p-4 shadow-[0_22px_46px_-40px_rgba(15,23,42,0.4)] sm:rounded-[24px] sm:p-5">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <p className="app-kicker">Быстрый подбор</p>
-            <h3 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+            <h3 className="mt-2 text-xl font-semibold leading-tight text-slate-950 sm:text-2xl">
               Выберите технику, а мы покажем стартовый ориентир
             </h3>
           </div>
@@ -28,7 +28,7 @@ export function QuickServiceEstimator({ onNavigate }: QuickServiceEstimatorProps
           </span>
         </div>
 
-        <div className="mt-6 grid gap-2 sm:grid-cols-3">
+        <div className="mt-5 grid gap-2 sm:mt-6 sm:grid-cols-3">
           {quickServicePresets.map((preset, index) => (
             <button
               key={preset.title}
@@ -36,7 +36,7 @@ export function QuickServiceEstimator({ onNavigate }: QuickServiceEstimatorProps
               onClick={() => setSelectedQuickService(index)}
               aria-pressed={selectedQuickService === index}
               className={cn(
-                'rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition',
+                'rounded-xl border px-4 py-3 text-left text-sm font-semibold transition sm:rounded-2xl',
                 selectedQuickService === index
                   ? 'border-blue-200 bg-white text-blue-700 shadow-[0_18px_32px_-28px_rgba(37,99,235,0.72)]'
                   : 'border-slate-200 bg-white/60 text-slate-600 hover:border-blue-100 hover:bg-white',
@@ -53,7 +53,7 @@ export function QuickServiceEstimator({ onNavigate }: QuickServiceEstimatorProps
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.28 }}
-          className="mt-5 rounded-[26px] bg-white p-5 ring-1 ring-slate-100"
+          className="mt-5 rounded-[18px] bg-white p-4 ring-1 ring-slate-100 sm:rounded-[22px] sm:p-5"
         >
           <p className="text-sm font-medium text-slate-500">{quickService.problem}</p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -69,7 +69,7 @@ export function QuickServiceEstimator({ onNavigate }: QuickServiceEstimatorProps
         </motion.div>
       </div>
 
-      <div className="rounded-[30px] bg-[linear-gradient(145deg,#0f172a_0%,#1e3a8a_100%)] p-5 text-white shadow-[0_26px_60px_-44px_rgba(15,23,42,0.76)]">
+      <div className="rounded-[18px] bg-[linear-gradient(145deg,#0f172a_0%,#1e3a8a_100%)] p-4 text-white shadow-[0_26px_60px_-44px_rgba(15,23,42,0.76)] sm:rounded-[24px] sm:p-5">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/55">Что входит</p>
         <div className="mt-4 space-y-3">
           {quickService.includes.map((item) => (

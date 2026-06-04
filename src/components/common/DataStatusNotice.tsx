@@ -49,22 +49,22 @@ export function DataStatusNotice({
   return (
     <div
       className={cn(
-        'app-panel-soft flex flex-col gap-4 border px-5 py-4 sm:flex-row sm:items-start sm:justify-between',
+        'app-panel-soft flex flex-col gap-4 border px-4 py-4 sm:flex-row sm:items-start sm:justify-between sm:px-5',
         styles.wrapper,
         className,
       )}
     >
-      <div className="flex items-start gap-3">
-        <div className={cn('mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl shadow-sm', styles.iconWrapper)}>
+      <div className="flex min-w-0 items-start gap-3">
+        <div className={cn('mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl shadow-sm sm:rounded-2xl', styles.iconWrapper)}>
           {styles.icon}
         </div>
-        <div className="space-y-1">
+        <div className="min-w-0 space-y-1">
           {title ? <p className="text-sm font-semibold text-slate-900">{title}</p> : null}
           <div className="text-sm leading-6 text-slate-600">{description}</div>
         </div>
       </div>
 
-      {action ? <div className="sm:shrink-0">{action}</div> : null}
+      {action ? <div className="w-full sm:w-auto sm:shrink-0">{action}</div> : null}
     </div>
   );
 }

@@ -142,15 +142,15 @@ export default function NewRequestForm() {
 
   if (submitted) {
     return (
-      <div className="app-panel p-6 sm:p-8">
+      <div className="app-panel p-5 sm:p-8">
         <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-start gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-[22px] bg-emerald-100 text-emerald-700">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700 sm:h-14 sm:w-14">
               <CircleCheckBig className="h-7 w-7" />
             </div>
             <div>
               <p className="app-kicker">Заявка создана</p>
-              <h3 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+              <h3 className="mt-2 text-xl font-semibold leading-tight text-slate-950 sm:text-2xl">
                 Обращение успешно зарегистрировано
               </h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -169,19 +169,19 @@ export default function NewRequestForm() {
   }
 
   return (
-    <div className="app-panel p-5 sm:p-6">
+    <div className="app-panel p-4 sm:p-6">
       <div className="border-b border-slate-100 pb-5">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="app-kicker">Форма приема</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+            <h2 className="mt-2 text-xl font-semibold leading-tight text-slate-950 sm:text-2xl">
               Новая заявка на ремонт
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500">
               Сначала сохраняем точные данные клиента и устройства, затем добавляем описание проблемы и приоритет.
             </p>
           </div>
-          <div className="app-panel-soft px-4 py-3 text-sm text-slate-600">
+          <div className="app-panel-soft w-full px-4 py-3 text-sm text-slate-600 sm:w-auto">
             <span className="app-kicker">Готовность</span>
             <p className="mt-2 font-medium text-slate-900">{completionState}</p>
           </div>
@@ -189,7 +189,7 @@ export default function NewRequestForm() {
       </div>
 
       {error ? (
-        <div className="mt-5 rounded-[22px] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+        <div className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
           {error}
         </div>
       ) : null}
@@ -304,7 +304,7 @@ export default function NewRequestForm() {
             <p className="app-kicker">Шаг 3</p>
             <h3 className="mt-2 text-lg font-semibold text-slate-950">Описание неисправности</h3>
           </div>
-          <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_260px]">
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_260px]">
             <div>
               <label className="mb-2 block text-sm font-medium text-slate-700">
                 Что произошло <span className="text-red-500">*</span>

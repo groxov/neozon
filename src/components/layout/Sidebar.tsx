@@ -15,11 +15,11 @@ export function Sidebar({ currentPage, onNavigate, isOpen, onClose }: SidebarPro
   return (
     <aside
       className={cn(
-        'fixed inset-y-0 left-0 z-40 flex w-[18.5rem] flex-col border-r border-slate-800/80 bg-[linear-gradient(180deg,rgba(2,6,23,0.98)_0%,rgba(5,12,32,0.98)_100%)] px-3 pb-3 pt-20 shadow-[0_24px_80px_-34px_rgba(2,6,23,0.78)] transition-transform duration-300 lg:translate-x-0',
+        'fixed inset-y-0 left-0 z-40 flex w-[min(18.5rem,calc(100vw-1rem))] flex-col border-r border-slate-800/80 bg-[linear-gradient(180deg,rgba(2,6,23,0.98)_0%,rgba(5,12,32,0.98)_100%)] px-3 pb-3 pt-18 shadow-[0_24px_80px_-34px_rgba(2,6,23,0.78)] transition-transform duration-300 lg:w-[18.5rem] lg:translate-x-0 lg:pt-20',
         isOpen ? 'translate-x-0' : '-translate-x-full',
       )}
     >
-      <div className="rounded-[24px] border border-white/10 bg-white/[0.045] px-4 py-4 text-slate-300">
+      <div className="rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-4 text-slate-300">
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
           Операционный центр
         </p>
@@ -77,7 +77,7 @@ export function Sidebar({ currentPage, onNavigate, isOpen, onClose }: SidebarPro
         })}
       </nav>
 
-      <div className="mt-4 rounded-[24px] border border-white/10 bg-white/[0.045] p-4">
+      <div className="mt-4 hidden rounded-2xl border border-white/10 bg-white/[0.045] p-4 sm:block">
         <p className="text-sm font-semibold text-white">Приоритет дня</p>
         <p className="mt-2 text-sm leading-6 text-slate-400">
           Держите в фокусе новые заявки и обращения со статусом «Ожидание запчастей», чтобы не

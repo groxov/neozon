@@ -102,7 +102,7 @@ export default function ReportsPage() {
         description="Финансовые и операционные показатели теперь собраны как одна связная отчетность: видно, какие данные пришли с сервера, а где страница временно опирается на fallback-слои."
         actions={
           <>
-            <label className="app-panel-soft flex min-w-[210px] items-center gap-3 px-4 py-3 text-sm text-slate-600">
+            <label className="app-panel-soft flex w-full min-w-0 items-center gap-3 px-4 py-3 text-sm text-slate-600 sm:w-auto sm:min-w-[210px]">
               <CalendarRange className="h-4 w-4 text-slate-500" />
               <select
                 value={selectedMonth}
@@ -116,7 +116,7 @@ export default function ReportsPage() {
                 ))}
               </select>
             </label>
-            <button onClick={handleExport} className="app-button-secondary">
+            <button onClick={handleExport} className="app-button-secondary w-full sm:w-auto">
               <Download className="h-4 w-4" />
               Экспорт CSV
             </button>

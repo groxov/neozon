@@ -5,11 +5,11 @@ import { cardReveal } from './motion';
 
 export function ProcessSection() {
   return (
-    <section id="process" className="section-anchor mx-auto max-w-[1480px] px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
+    <section id="process" className="section-anchor mx-auto max-w-[1480px] px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-10">
       <div className="grid gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
-        <div className="app-panel p-6">
+        <div className="app-panel p-4 sm:p-6">
           <p className="app-eyebrow">Процесс</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+          <h2 className="mt-4 text-2xl font-semibold leading-tight text-slate-950 sm:text-3xl">
             Как строим работу
           </h2>
           <p className="mt-4 text-sm leading-7 text-slate-600">

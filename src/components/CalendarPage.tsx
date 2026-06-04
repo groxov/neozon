@@ -150,7 +150,7 @@ export default function CalendarPage({ onViewRequest }: CalendarPageProps) {
       />
 
       <div className="grid gap-4 xl:grid-cols-[0.88fr_1.12fr]">
-        <section className="app-panel p-5 sm:p-6">
+        <section className="app-panel p-4 sm:p-6">
           <div className="flex items-center justify-between gap-3">
             <div>
               <p className="app-kicker">Месяц</p>
@@ -161,20 +161,20 @@ export default function CalendarPage({ onViewRequest }: CalendarPageProps) {
             </span>
           </div>
 
-          <div className="mt-6 grid grid-cols-7 gap-2 text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+          <div className="mt-5 grid grid-cols-7 gap-1 text-center text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-400 sm:mt-6 sm:gap-2 sm:text-xs sm:tracking-[0.18em]">
             {['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'].map((day) => (
               <div key={day}>{day}</div>
             ))}
           </div>
 
           {hasActivityInMonth ? (
-            <div className="mt-3 grid grid-cols-7 gap-2">
+            <div className="mt-3 grid grid-cols-7 gap-1 sm:gap-2">
               {calendarCells.map((cell, index) =>
                 cell ? (
                   <button
                     key={cell.key}
                     onClick={() => setSelectedDate(cell.key)}
-                    className={`relative aspect-square rounded-2xl border text-sm font-medium transition ${
+                    className={`relative aspect-square rounded-xl border text-xs font-medium transition sm:rounded-2xl sm:text-sm ${
                       cell.key === activeDateKey
                         ? 'border-blue-200 bg-blue-50 text-blue-700 shadow-[0_20px_44px_-32px_rgba(37,99,235,0.65)]'
                         : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50'
@@ -182,13 +182,13 @@ export default function CalendarPage({ onViewRequest }: CalendarPageProps) {
                   >
                     <span>{cell.label}</span>
                     {cell.requestsCount > 0 ? (
-                      <span className="absolute bottom-1.5 left-1/2 -translate-x-1/2 rounded-full bg-slate-900 px-1.5 py-0.5 text-[10px] font-semibold text-white">
+                      <span className="absolute bottom-1 left-1/2 -translate-x-1/2 rounded-full bg-slate-900 px-1.5 py-0.5 text-[9px] font-semibold leading-none text-white sm:bottom-1.5 sm:text-[10px]">
                         {cell.requestsCount}
                       </span>
                     ) : null}
                   </button>
                 ) : (
-                  <div key={`empty-${index}`} className="aspect-square rounded-2xl bg-transparent" />
+                  <div key={`empty-${index}`} className="aspect-square rounded-xl bg-transparent sm:rounded-2xl" />
                 ),
               )}
             </div>
@@ -223,7 +223,7 @@ export default function CalendarPage({ onViewRequest }: CalendarPageProps) {
               На выбранную дату пока нет обращений.
             </div>
           ) : (
-            <div className="grid gap-3 p-4 sm:p-6">
+            <div className="grid gap-3 p-3 sm:p-6">
               {selectedDayRequests.map((request) => (
                 <article
                   key={request.id}

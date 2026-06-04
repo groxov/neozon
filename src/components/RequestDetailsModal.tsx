@@ -19,18 +19,18 @@ function DetailRow({ label, value }: { label: string; value?: string }) {
 export default function RequestDetailsModal({ request, onClose }: RequestDetailsModalProps) {
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm sm:p-6"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 p-2 backdrop-blur-sm sm:p-6"
       onClick={onClose}
     >
       <div
-        className="app-panel w-full max-w-5xl overflow-hidden"
+        className="app-panel flex max-h-[calc(100dvh-1rem)] w-full max-w-5xl flex-col overflow-hidden sm:max-h-[calc(100dvh-3rem)]"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="bg-gradient-to-r from-[#7c3aed] via-[#5b5bd6] to-[#2563eb] px-5 py-5 text-white sm:px-6 sm:py-6">
+        <div className="shrink-0 bg-gradient-to-r from-[#7c3aed] via-[#5b5bd6] to-[#2563eb] px-4 py-4 text-white sm:px-6 sm:py-6">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/70">Карточка обращения</p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">
+              <h2 className="mt-3 text-xl font-semibold leading-tight sm:text-3xl">
                 Заявка #{request.id}
               </h2>
               <div className="mt-4 flex flex-wrap items-center gap-2 text-sm text-white/80">
@@ -56,7 +56,7 @@ export default function RequestDetailsModal({ request, onClose }: RequestDetails
           </div>
         </div>
 
-        <div className="max-h-[calc(100vh-12rem)] overflow-y-auto px-5 py-5 sm:px-6 sm:py-6">
+        <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4 sm:px-6 sm:py-6">
           <div className="mb-6 flex flex-wrap gap-2">
             <StatusBadge status={request.status} className="px-4 py-1.5 text-sm" />
             <PriorityBadge priority={request.priority} className="px-4 py-1.5 text-sm" />
@@ -169,7 +169,7 @@ export default function RequestDetailsModal({ request, onClose }: RequestDetails
           </section>
         </div>
 
-        <div className="border-t border-slate-100 bg-slate-50/80 px-5 py-4 sm:px-6">
+        <div className="hidden shrink-0 border-t border-slate-100 bg-slate-50/80 px-4 py-4 sm:px-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-slate-500">
               Карточка открыта в режиме просмотра. Редактирование лучше держать отдельным понятным сценарием.

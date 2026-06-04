@@ -105,7 +105,7 @@ export default function RequestsList({ onViewRequest }: RequestsListProps) {
         />
       ) : null}
 
-      <section className="app-panel p-5 sm:p-6">
+      <section className="app-panel p-4 sm:p-6">
         <div className="grid gap-3 xl:grid-cols-[minmax(0,2fr)_minmax(220px,1fr)_minmax(220px,1fr)_minmax(220px,1fr)]">
           <div className="relative">
             <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
@@ -163,7 +163,7 @@ export default function RequestsList({ onViewRequest }: RequestsListProps) {
         </div>
 
         <div className="mt-4 flex flex-col gap-3 border-t border-slate-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
+          <div className="flex min-w-0 flex-wrap items-center gap-2 text-sm text-slate-600">
             <span className="app-kicker">Найдено</span>
             <span className="rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-700">
               {sortedRequests.length}
@@ -196,17 +196,17 @@ export default function RequestsList({ onViewRequest }: RequestsListProps) {
                 <article
                   key={request.id}
                   onClick={() => onViewRequest(request)}
-                  className="app-panel cursor-pointer p-5 transition duration-200 hover:-translate-y-0.5 hover:border-blue-100 hover:shadow-[0_24px_56px_-36px_rgba(37,99,235,0.45)]"
+                  className="app-panel cursor-pointer p-4 transition duration-200 hover:-translate-y-0.5 hover:border-blue-100 hover:shadow-[0_24px_56px_-36px_rgba(37,99,235,0.45)] sm:p-5"
                 >
                   <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div>
+                    <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="text-base font-semibold text-slate-950">#{request.id}</span>
                         <StatusBadge status={request.status} />
                       </div>
                       <p className="mt-2 text-sm text-slate-500">{request.createdAt.toLocaleDateString('ru-RU')}</p>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       {focusItem ? (
                         <span
                           className={`rounded-full px-3 py-1 text-xs font-semibold ${
@@ -227,12 +227,12 @@ export default function RequestsList({ onViewRequest }: RequestsListProps) {
                   <div className="mt-5 grid gap-4 sm:grid-cols-2">
                     <div>
                       <p className="app-kicker">Клиент</p>
-                      <p className="mt-2 text-base font-medium text-slate-900">{request.clientName}</p>
-                      <p className="mt-1 text-sm text-slate-500">{request.clientPhone}</p>
+                      <p className="mt-2 break-words text-base font-medium text-slate-900">{request.clientName}</p>
+                      <p className="mt-1 break-words text-sm text-slate-500">{request.clientPhone}</p>
                     </div>
                     <div>
                       <p className="app-kicker">Устройство</p>
-                      <p className="mt-2 text-base font-medium text-slate-900">
+                      <p className="mt-2 break-words text-base font-medium text-slate-900">
                         {request.deviceType} {request.deviceModel}
                       </p>
                       <p className="mt-1 text-sm text-slate-500">{request.serialNumber || 'Без серийного номера'}</p>

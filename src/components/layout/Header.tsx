@@ -19,12 +19,12 @@ export function Header({
   onMobileMenuToggle,
 }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/70 bg-white/85 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-[1680px] items-center justify-between gap-3 px-4 sm:px-6 lg:h-20 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-white/70 bg-white/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-[1680px] items-center justify-between gap-2 px-3 sm:gap-3 sm:px-5 lg:h-20 lg:px-8">
         <div className="flex min-w-0 items-center gap-3">
           <button
             onClick={onMobileMenuToggle}
-            className="app-button-ghost h-11 w-11 p-0 lg:hidden"
+            className="app-button-ghost h-10 w-10 p-0 lg:hidden"
             aria-label="Открыть меню"
           >
             <Menu className="h-5 w-5" />
@@ -40,7 +40,7 @@ export function Header({
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <div className="hidden items-center gap-3 rounded-[22px] border border-slate-200 bg-white px-4 py-2 shadow-sm sm:flex">
+          <div className="hidden max-w-[280px] items-center gap-3 rounded-2xl border border-slate-200 bg-white px-3 py-2 shadow-sm sm:flex lg:max-w-none lg:px-4">
             <div
               className={cn(
                 'flex h-10 w-10 items-center justify-center rounded-2xl',

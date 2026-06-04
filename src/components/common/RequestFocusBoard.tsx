@@ -56,7 +56,7 @@ export function RequestFocusBoard({
   };
 
   return (
-    <section className={cn('app-panel p-5 sm:p-6', className)}>
+    <section className={cn('app-panel p-4 sm:p-6', className)}>
       <div className="flex flex-col gap-4 border-b border-slate-100 pb-5 xl:flex-row xl:items-start xl:justify-between">
         <div className="max-w-3xl">
           <p className="app-kicker">{eyebrow}</p>
@@ -64,7 +64,7 @@ export function RequestFocusBoard({
           <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">{description}</p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center xl:justify-end">
           <FocusPill icon={<AlertTriangle className="h-4 w-4" />} tone="rose">
             {summary.overdueCount} просрочено
           </FocusPill>
@@ -74,7 +74,7 @@ export function RequestFocusBoard({
           <FocusPill icon={<UserRoundX className="h-4 w-4" />} tone="slate">
             {summary.unassignedCount} без ответственного
           </FocusPill>
-          <button type="button" onClick={handleCopy} className="app-button-secondary">
+          <button type="button" onClick={handleCopy} className="app-button-secondary w-full sm:w-auto">
             {copyState === 'done' ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
             {copyState === 'done'
               ? 'План скопирован'
@@ -125,7 +125,7 @@ export function RequestFocusBoard({
                     <p className="mt-2 text-sm leading-6 text-slate-500">{item.note}</p>
                   </div>
 
-                  <div className="shrink-0 rounded-2xl bg-white px-4 py-3 text-sm">
+                  <div className="w-full rounded-2xl bg-white px-4 py-3 text-sm lg:w-auto lg:shrink-0">
                     <p className="font-semibold text-slate-900">{item.deadlineLabel}</p>
                     <p className="mt-1 text-slate-500">{item.ageLabel}</p>
                     <p className="mt-1 text-slate-500">{item.request.assignedTo ? `Ответственный: ${item.request.assignedTo}` : 'Ответственный не назначен'}</p>
@@ -136,7 +136,7 @@ export function RequestFocusBoard({
           )}
         </div>
 
-        <aside className="app-panel-soft p-5">
+        <aside className="app-panel-soft p-4 sm:p-5">
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="app-kicker">Срез очереди</p>

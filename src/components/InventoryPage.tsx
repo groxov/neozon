@@ -112,7 +112,7 @@ export default function InventoryPage() {
         />
       </div>
 
-      <section className="app-panel p-4 sm:p-5">
+      <section className="app-panel p-3 sm:p-5">
         <div className="grid gap-3 lg:grid-cols-[1fr_220px]">
           <label className="relative block">
             <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
@@ -139,7 +139,7 @@ export default function InventoryPage() {
       </section>
 
       <div className="grid gap-4 xl:grid-cols-[0.92fr_1.08fr]">
-        <section className="app-panel p-5 sm:p-6">
+        <section className="app-panel p-4 sm:p-6">
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="app-kicker">Контроль остатков</p>
@@ -227,10 +227,10 @@ export default function InventoryPage() {
                 </table>
               </div>
 
-              <div className="grid gap-3 p-4 sm:p-6 lg:hidden">
+              <div className="grid gap-3 p-3 sm:p-6 lg:hidden">
                 {filteredInventory.map((item) => (
                   <article key={item.id} className="app-panel-soft p-4">
-                    <div className="flex items-start justify-between gap-3">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                       <div className="min-w-0 flex-1">
                         <p className="text-sm font-semibold text-slate-900">{item.name}</p>
                         <p className="mt-1 text-sm text-slate-500">

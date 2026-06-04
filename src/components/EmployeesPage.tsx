@@ -106,7 +106,7 @@ export default function EmployeesPage() {
         />
       </div>
 
-      <section className="app-panel p-4 sm:p-5">
+      <section className="app-panel p-3 sm:p-5">
         <label className="relative block">
           <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
           <input
@@ -201,10 +201,10 @@ export default function EmployeesPage() {
               </table>
             </div>
 
-            <div className="grid gap-3 p-4 sm:p-6 lg:hidden">
+            <div className="grid gap-3 p-3 sm:p-6 lg:hidden">
               {filteredEmployees.map((employee) => (
                 <article key={employee.id} className="app-panel-soft p-4">
-                  <div className="flex items-start gap-3">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start">
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-100 font-semibold text-blue-700">
                       {employee.name
                         .split(' ')
@@ -214,7 +214,7 @@ export default function EmployeesPage() {
                     </div>
 
                     <div className="min-w-0 flex-1">
-                      <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                         <div className="min-w-0">
                           <h3 className="text-sm font-semibold text-slate-950">{employee.name}</h3>
                           <p className="mt-1 text-sm text-slate-500">{employee.position}</p>

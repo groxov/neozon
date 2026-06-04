@@ -2,12 +2,12 @@ import { portfolioHighlights } from '../../data/landingContent';
 
 export function PortfolioSection() {
   return (
-    <section id="portfolio" className="section-anchor mx-auto max-w-[1480px] px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
-      <div className="app-panel p-6 sm:p-8">
+    <section id="portfolio" className="section-anchor mx-auto max-w-[1480px] px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-10">
+      <div className="app-panel p-4 sm:p-8">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="app-eyebrow">Реальные кейсы</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl">
+            <h2 className="mt-4 text-2xl font-semibold leading-tight text-slate-950 sm:text-4xl">
               Несколько работ из недавней практики
             </h2>
           </div>
@@ -18,7 +18,7 @@ export function PortfolioSection() {
 
         <div className="mt-8 grid gap-4 xl:grid-cols-3">
           {portfolioHighlights.map((work) => (
-            <article key={work.id} className="rounded-[30px] border border-slate-100 bg-slate-50/90 p-5 shadow-[0_22px_46px_-38px_rgba(15,23,42,0.38)]">
+            <article key={work.id} className="rounded-[18px] border border-slate-100 bg-slate-50/90 p-4 shadow-[0_22px_46px_-38px_rgba(15,23,42,0.38)] sm:rounded-[24px] sm:p-5">
               <div className="flex items-center justify-between gap-3">
                 <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                   {work.category}

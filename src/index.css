@@ -15,6 +15,7 @@ html {
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
   background: var(--app-bg);
   color: #0f172a;
   font-family: "Segoe UI Variable", "Trebuchet MS", "Segoe UI", sans-serif;
@@ -60,43 +61,43 @@ body {
 
 @layer components {
   .app-eyebrow {
-    @apply inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-blue-700;
+    @apply inline-flex max-w-full items-center rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-[11px] font-semibold uppercase leading-5 tracking-[0.14em] text-blue-700 sm:text-xs sm:tracking-[0.2em];
   }
 
   .app-panel {
-    @apply rounded-[28px] border border-white/70 bg-white/90 shadow-[0_20px_60px_-34px_rgba(15,23,42,0.35)] backdrop-blur;
+    @apply rounded-[18px] border border-white/70 bg-white/92 shadow-[0_16px_44px_-34px_rgba(15,23,42,0.34)] backdrop-blur sm:rounded-[24px] sm:shadow-[0_20px_60px_-38px_rgba(15,23,42,0.35)];
   }
 
   .app-panel-soft {
-    @apply rounded-[24px] border border-slate-200/80 bg-slate-50/90 shadow-[0_18px_48px_-38px_rgba(15,23,42,0.45)];
+    @apply rounded-[16px] border border-slate-200/80 bg-slate-50/90 shadow-[0_14px_38px_-34px_rgba(15,23,42,0.38)] sm:rounded-[20px];
   }
 
   .app-input {
-    @apply h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm text-slate-900 transition duration-200 placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-100;
+    @apply h-11 w-full rounded-xl border border-slate-200 bg-white px-3.5 text-sm text-slate-900 transition duration-200 placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-100 sm:h-12 sm:rounded-2xl sm:px-4;
   }
 
   .app-textarea {
-    @apply min-h-32 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 transition duration-200 placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-100;
+    @apply min-h-32 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm text-slate-900 transition duration-200 placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-100 sm:rounded-2xl sm:px-4;
   }
 
   .app-select {
-    @apply h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm text-slate-900 transition duration-200 focus:border-blue-400 focus:ring-4 focus:ring-blue-100;
+    @apply h-11 w-full rounded-xl border border-slate-200 bg-white px-3.5 text-sm text-slate-900 transition duration-200 focus:border-blue-400 focus:ring-4 focus:ring-blue-100 sm:h-12 sm:rounded-2xl sm:px-4;
   }
 
   .app-button-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#7c3aed] via-[#5b5bd6] to-[#2563eb] px-5 py-3 text-sm font-semibold text-white shadow-[0_20px_40px_-24px_rgba(37,99,235,0.8)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_24px_44px_-20px_rgba(37,99,235,0.75)] disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#7c3aed] via-[#5b5bd6] to-[#2563eb] px-4 py-2.5 text-center text-sm font-semibold leading-5 text-white shadow-[0_18px_36px_-24px_rgba(37,99,235,0.72)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_22px_42px_-22px_rgba(37,99,235,0.68)] disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 sm:rounded-2xl sm:px-5 sm:py-3;
   }
 
   .app-button-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition duration-200 hover:border-slate-300 hover:bg-slate-50;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-center text-sm font-semibold leading-5 text-slate-700 transition duration-200 hover:border-slate-300 hover:bg-slate-50 sm:rounded-2xl sm:px-5 sm:py-3;
   }
 
   .app-button-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-medium text-slate-600 transition duration-200 hover:bg-white/70 hover:text-slate-900;
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium leading-5 text-slate-600 transition duration-200 hover:bg-white/70 hover:text-slate-900 sm:rounded-2xl sm:px-4 sm:py-2.5;
   }
 
   .app-kicker {
-    @apply text-xs font-semibold uppercase tracking-[0.22em] text-slate-500;
+    @apply text-[11px] font-semibold uppercase leading-5 tracking-[0.14em] text-slate-500 sm:text-xs sm:tracking-[0.2em];
   }
 
   .section-anchor {
@@ -127,6 +128,24 @@ body {
   .sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, rgba(148, 163, 184, 0.56), rgba(100, 116, 139, 0.46));
     background-clip: padding-box;
+  }
+
+  .responsive-table {
+    @apply overflow-x-auto overscroll-x-contain;
+  }
+}
+
+@media (max-width: 640px) {
+  h1,
+  h2,
+  h3 {
+    letter-spacing: 0;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
   }
 }
 

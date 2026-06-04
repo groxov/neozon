@@ -71,7 +71,7 @@ export default function FinancePage() {
         description="Помесячная сводка по выручке, расходам и операциям. Экран теперь аккуратно различает живые серверные данные и fallback-слой, чтобы не смешивать демонстрацию и реальную картину."
         actions={
           <>
-            <label className="app-panel-soft flex min-w-[210px] items-center gap-3 px-4 py-3 text-sm text-slate-600">
+            <label className="app-panel-soft flex w-full min-w-0 items-center gap-3 px-4 py-3 text-sm text-slate-600 sm:w-auto sm:min-w-[210px]">
               <CalendarRange className="h-4 w-4 text-slate-500" />
               <select
                 value={selectedMonth}
@@ -85,7 +85,7 @@ export default function FinancePage() {
                 ))}
               </select>
             </label>
-            <button onClick={handleExport} className="app-button-secondary">
+            <button onClick={handleExport} className="app-button-secondary w-full sm:w-auto">
               <Download className="h-4 w-4" />
               Экспорт CSV
             </button>

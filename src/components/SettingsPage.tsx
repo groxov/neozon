@@ -112,8 +112,8 @@ export default function SettingsPage() {
 
       {savedMessage ? <DataStatusNotice variant="success" description={savedMessage} /> : null}
 
-      <section className="app-panel p-4 sm:p-5">
-        <div className="flex flex-wrap gap-2">
+      <section className="app-panel p-3 sm:p-5">
+        <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible sm:pb-0">
           {[
             { id: 'general' as const, label: 'Общие', icon: <Building2 className="h-4 w-4" /> },
             { id: 'notifications' as const, label: 'Уведомления', icon: <BellRing className="h-4 w-4" /> },
@@ -122,7 +122,7 @@ export default function SettingsPage() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`inline-flex items-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-medium transition ${
+              className={`inline-flex shrink-0 items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition sm:rounded-2xl ${
                 activeTab === tab.id
                   ? 'bg-blue-50 text-blue-700 shadow-[0_12px_30px_-22px_rgba(37,99,235,0.7)]'
                   : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
@@ -345,7 +345,7 @@ export default function SettingsPage() {
         </div>
       ) : null}
 
-      <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-end">
         <button
           onClick={restoreDefaults}
           className="app-button-secondary"

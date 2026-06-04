@@ -111,7 +111,7 @@ export default function ClientsPage() {
         />
       </div>
 
-      <section className="app-panel p-4 sm:p-5">
+      <section className="app-panel p-3 sm:p-5">
         <label className="relative block">
           <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
           <input
@@ -136,9 +136,9 @@ export default function ClientsPage() {
           {filteredClients.map((client) => (
             <article
               key={client.id}
-              className="app-panel p-5 transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_26px_60px_-36px_rgba(37,99,235,0.4)]"
+              className="app-panel p-4 transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_26px_60px_-36px_rgba(37,99,235,0.4)] sm:p-5"
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 sm:gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#7c3aed] to-[#2563eb] text-lg font-semibold text-white shadow-sm">
                   {client.name.charAt(0)}
                 </div>
@@ -146,7 +146,7 @@ export default function ClientsPage() {
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0">
-                      <h2 className="text-base font-semibold text-slate-950 sm:text-lg">{client.name}</h2>
+                      <h2 className="break-words text-base font-semibold text-slate-950 sm:text-lg">{client.name}</h2>
                       <p className="mt-1 text-sm text-slate-500">ID клиента: {client.id}</p>
                     </div>
                     <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
